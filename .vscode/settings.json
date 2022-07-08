@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"cstdlib": "c",
+		"__threading_support": "cpp"
+	}
+}
