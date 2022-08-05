@@ -66,7 +66,7 @@ void check_args(t_data *data, int ac)
 		printf("Incorrect count of argument\n");
 		exit(1);
 	}
-	if(data->num_philo < 1 || data->num_philo > 200 || data->t_die < 0 ||
+	if(data->num_philo < 1 || data->num_philo > 200 || data->t_die < 0 || //neden 200
 		data->t_eat < 0 || data->t_sleep < 0 )
 		{
 			printf("Incorrect arguments\n");
@@ -83,9 +83,10 @@ int check_meals(t_philo *philo)
 	{
 		while(i < philo->data_of_philo->num_philo)
 		{
-			if(philo[i].ate_count >= philo->data_of_philo->must_eat)
+			if(philo[i].ate_count == philo->data_of_philo->must_eat)
 				philo->data_of_philo->sum_meal++;
 			i++;
+			
 		}
 		if(philo->data_of_philo->sum_meal >= philo->data_of_philo->num_philo)
 		{

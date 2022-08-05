@@ -34,7 +34,7 @@ void *loop(void *val)
 
 	philo = (t_philo *)val;
 	if(philo->philo_id % 2 == 0)
-		usleep(1600);
+		usleep(1600);//mikrosaniye
 	while(philo->data_of_philo->is_died != 1)
 	{
 		eat_func(philo);
@@ -55,6 +55,7 @@ void *monitoring(void *val)
 	while(!check_meals(philo))
 	{
 		i = 0;
+		
 		while(i < philo->data_of_philo->num_philo)
 		{
 			if(get_time() - philo[i].last_meal > philo->data_of_philo->t_die)
@@ -65,7 +66,7 @@ void *monitoring(void *val)
 			}
 			i++;
 		}
-		usleep(1000);
+		usleep(1000);//?
 	}
 	return (NULL);
 }
@@ -73,7 +74,7 @@ void *monitoring(void *val)
 void start_dinner(t_philo *philo)
 {
 	int i;
-	pthread_t monitor;
+	pthread_t monitor;//ölüp ölmediğini kontrol etmek için
 
 	i = -1;
 	philo->data_of_philo->start_time = get_time();
@@ -86,6 +87,8 @@ void start_dinner(t_philo *philo)
 		}
 	}
 	pthread_create(&monitor, NULL, &monitoring, philo);
+//	while(philo->data_of_philo->is_died)
+//		monitoring();
 	i = -1;
 	while(++i < philo->data_of_philo->num_philo)
 	{

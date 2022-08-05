@@ -32,7 +32,7 @@ typedef struct s_philo
 	t_data *data_of_philo;
 }t_philo;
 
-void	init_data(t_data *data, int ac, char **av);
+int	init_data(t_data *data, int ac, char **av);
 t_philo	*init_philo(t_data *data);
 //utils
 void	check_args(t_data *data, int ac);
